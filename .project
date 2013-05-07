@@ -33,4 +33,26 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WebContent/WEB-INF/lib/joda-time.jar</name>
+			<type>1</type>
+			<location>C:/work/code/3rd_Ben/stanford_nlp/joda-time.jar</location>
+		</link>
+		<link>
+			<name>WebContent/WEB-INF/lib/jollyday.jar</name>
+			<type>1</type>
+			<location>C:/work/code/3rd_Ben/stanford_nlp/jollyday.jar</location>
+		</link>
+		<link>
+			<name>WebContent/WEB-INF/lib/stanford-corenlp-1.3.5.jar</name>
+			<type>1</type>
+			<location>C:/work/code/3rd_Ben/stanford_nlp/target/stanford-corenlp-1.3.5.jar</location>
+		</link>
+		<link>
+			<name>WebContent/WEB-INF/lib/xom.jar</name>
+			<type>1</type>
+			<location>C:/work/code/3rd_Ben/stanford_nlp/xom.jar</location>
+		</link>
+	</linkedResources>
 </projectDescription>

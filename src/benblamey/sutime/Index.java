@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.stanford.nlp.time.SUTime;
+
 /**
  * Servlet implementation class Index
  */
@@ -43,6 +45,8 @@ public class Index extends HttpServlet {
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("WEB-INF/index.jsp");
 		dispatcher.forward(request, response);
+		
+		System.out.println( SUTime.Ben );
 	}
 
 
