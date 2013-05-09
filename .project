@@ -35,6 +35,21 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>WebContent/WEB-INF/lib/BenTimeline2.jar</name>
+			<type>1</type>
+			<location>C:/work/code/Ben/BenTimeline2/dist/BenTimeline2.jar</location>
+		</link>
+		<link>
+			<name>WebContent/WEB-INF/lib/commons-codec-1.7.jar</name>
+			<type>1</type>
+			<location>C:/work/code/3rd_Ben/commons-codec-1.7/commons-codec-1.7.jar</location>
+		</link>
+		<link>
+			<name>WebContent/WEB-INF/lib/commons-lang3-3.1.jar</name>
+			<type>1</type>
+			<location>C:/work/code/3rd_Ben/commons-lang3-3.1/commons-lang3-3.1.jar</location>
+		</link>
+		<link>
 			<name>WebContent/WEB-INF/lib/joda-time.jar</name>
 			<type>1</type>
 			<location>C:/work/code/3rd_Ben/stanford_nlp/joda-time.jar</location>
