@@ -1,0 +1,42 @@
+  ENV.defaults["stage"] = 1
+  ENV.defaults["ruleType"] = "tokens"
+
+  $POSS = "( /'s/ | /'/ /s/ )"
+
+
+
+  { (/new/ /years/ $POSS? /eve/ ) => IsoDate(NIL, 12, 31, NEWYEARSEVE_DIST) }
+  { (/bonfire/ /night/ ) => IsoDate(NIL, 12, 31, BONFIRENIGHT_DIST) }
+  { (/new/ /years/ $POSS? /day/? ) => IsoDate(NIL, 1, 1) }
+  { (/inauguration/ /day/ ) => IsoDate(NIL, 1, 20) }
+  { (/groundhog/ /day/ ) => IsoDate(NIL, 2, 2) }
+  { (/st.?|saint/? /valentine/ $POSS? /day/ ) => IsoDate(NIL, 2, 14, VALENTINESDAY_DIST) }
+  { (/st.?|saint/ /patrick/ $POSS? /day/ ) => IsoDate(NIL, 3, 17) }
+
+  { (/graduation/ /day/? ) => PdfTime(GRADUATION_DIST) }
+  { (/fresher'?s/ /week/ ) => PdfTime(GRADUATION_DIST) }
+  { (/last/ /day/ /of/ /school/ ) => PdfTime(LASTDAYOFSCHOOL_DIST) }
+
+
+  { (/april/ /fools/ /day/? ) => IsoDate(NIL, 4, 1, APRILFOOLSDAY_DIST) }
+  { (/cinco/ /de/ /mayo/ ) => IsoDate(NIL, 5, 5) }
+  { (/halloween/ ) => IsoDate(NIL, 10, 31, HALLOWEEN_DIST) }
+  { (/x-?mas|christma+s/ /eve/ ) => IsoDate(NIL, 12, 24) }
+  { (/x-?mas|christma+s/ /day/ ) => IsoDate(NIL, 12, 25) }
+  { (/x-?mas|christma+s+!*/ ) => IsoDate(NIL, 12, 25, CHRISTMAS_DIST) }
+
+
+
+
+  { (/martin/ /luther/ /king/ /day/ | /mlk/ /day/) => JH_MARTIN_LURTHER_KING }
+  { (/memorial/ /day/) => JH_MEMORIAL }
+  { (/mother/ $POSS /day/) => JH_MOTHERS_DAY }
+  { (/father/ $POSS /day/) => JH_FATHERS_DAY }
+  { (/labou?r/ /day/) => JH_LABOUR_DAY }
+  { (/columbus/ /day/) => JH_COLUMBUS_DAY }
+  { (/thanksgiving/) => JH_THANKSGIVING }
+
+  { (/easter/ (/day/|/sunday/)?) => JH_EASTER }
+  { (/clean/ /monday/) => JH_CLEAN_MONDAY }
+  { (/good/ /friday/) => JH_GOOD_FRIDAY }
+  { (/ash/ /wednesday/) => JH_ASH_WEDNESDAY }

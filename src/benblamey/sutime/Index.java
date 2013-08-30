@@ -1,9 +1,6 @@
 package benblamey.sutime;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.List;
 import java.util.Properties;
 
 import javax.servlet.RequestDispatcher;
@@ -13,55 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.stanford.nlp.io.IOUtils;
-import edu.stanford.nlp.pipeline.Annotation;
+import benblamey.sutime.SUTimeMain2.ProcessTextResult;
 import edu.stanford.nlp.pipeline.AnnotationPipeline;
 import edu.stanford.nlp.time.SUTime;
-import edu.stanford.nlp.time.SUTimeMain;
-import edu.stanford.nlp.time.XMLUtils;
-import edu.stanford.nlp.util.CoreMap;
+import edu.stanford.nlp.time.distributed.DistributedMain;
 import edu.stanford.nlp.util.StringUtils;
-
-import benblamey.core.UriUtility;
-import benblamey.core.html;
-import benblamey.experiments.gnuplot.Gnuplot;
-import benblamey.experiments.pipeline.UserContext;
-import benblamey.sutime.SUTimeMain2.ProcessTextResult;
-import edu.stanford.nlp.io.IOUtils;
-import edu.stanford.nlp.io.ReaderInputStream;
-import edu.stanford.nlp.io.TeeStream;
-import edu.stanford.nlp.ling.CoreAnnotations;
-import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.ling.tokensregex.MatchedExpression;
-
-import edu.stanford.nlp.process.CoreLabelTokenFactory;
-import edu.stanford.nlp.stats.PrecisionRecallStats;
-import edu.stanford.nlp.time.TimeAnnotations;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
-import java.util.logging.LogManager;
 
 /**
  * Servlet implementation class Index
  */
-@WebServlet("/")
+@WebServlet("/Index")
 public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public Index() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -92,12 +53,14 @@ public class Index extends HttpServlet {
 	private void doRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		System.out.println(SUTime.Ben);
+		// Tries searching the classpath by default (see: IOUtils)
 
-				Properties props = StringUtils.argsToProperties(new String[0]);
-			props.put(
-					"pos.model",
-					"C:\\work\\code\\3rd_Ben\\stanford_nlp/src/edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger");
+				//SUTime.class.getResource().toString();
+		
+		//System.err.println(uri);
+		
+		//System.out.println(SUTime.Ben);
+
 
 			// String in = "1 ___  ben 2004\n1 ___  Summer 2005";
 			
@@ -105,7 +68,7 @@ public class Index extends HttpServlet {
 			String in= request.getParameter("text");
 			
 			if (in == null || in.length() == 0) {
-				in = "Summer 2012";
+				in = "Christmas\n\nSummer 2001";
 			}
 			
 			final int MAX_INPUT_LENGTH = 4000;
@@ -122,22 +85,29 @@ public class Index extends HttpServlet {
 			// //props.getProperty("i");
 			// String in = "ben '04";
 
-			String date = "2013-04-23";// props.getProperty("date");
+			String date = null;//"2013-04-23";// props.getProperty("date");
 
 			AnnotationPipeline pipeline;
+			
+			String uri ="edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
+				Properties props = StringUtils.argsToProperties(new String[0]);
+			props.put(
+					"pos.model",
+					
+					uri);
+					//"C:\\work\\code\\3rd_Ben\\stanford_nlp/src/edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger");
 
-			pipeline = SUTimeMain2.getPipeline(props, true);
+			pipeline = DistributedMain.getPipeline(props, true);
 
 			//StringWriter stringWriter = new StringWriter();
 			//PrintWriter pw = new PrintWriter(stringWriter);
 
-			
-			
 			ProcessTextResult ptr = SUTimeMain2.processText(pipeline, in, date);
 
 			//request.setAttribute("PTR", ptr);
 			request.setAttribute("HIGHLIGHTED_HTML", ptr.highlightedHtml);
 			request.setAttribute("TEXTAREA_TEXT", ptr.textAreaText);
+			request.setAttribute("VIEW_MODELS", ptr.viewmodels);
 			
 			//System.out.println(stringWriter.getBuffer());
 
