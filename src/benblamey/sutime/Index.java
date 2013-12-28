@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import benblamey.sutime.SUTimeMain2.ProcessTextResult;
 import edu.stanford.nlp.pipeline.AnnotationPipeline;
-import edu.stanford.nlp.time.SUTime;
 import edu.stanford.nlp.time.distributed.DistributedMain;
 import edu.stanford.nlp.util.StringUtils;
 

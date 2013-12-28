@@ -17,8 +17,8 @@ span.highlight {
 
 </head>
 <body>
-	<h1>The First Day of Summer: Parsing Temporal Expressions with Distributed Semantics</h1>
-	<p>Research Paper under review.</p>
+	<h1><i>&#39;The First Day of Summer&#39;</i>: Parsing Temporal Expressions with Distributed Semantics</h1>
+
 
 	<form method="post" action="Index">
 	
@@ -45,6 +45,15 @@ span.highlight {
 	
 	
 	<% } %>
+
+
+<hr/>
+
+<p>Ben Blamey | lastname.firstname(at)gmail(dot)com | <a href="http://benblamey.name">Homepage</a>
+| <a href="http://benblamey.name/pubs/ai_2013/blamey13parsing.pdf">Paper (PDF)</a>
+| <a href="http://benblamey.name/pubs/ai_2013/blamey13parsing_slides.pdf">Slides (PDF)</a>
+| <a href="http://benblamey.name/pubs/ai_2013/blamey13parsing.bib">Bibtex</a>
+| <a href="https://github.com/benblamey/stanford-nlp">Source Code</a></p>
 
 </body>
 </html>
