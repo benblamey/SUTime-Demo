@@ -49,10 +49,10 @@ span.highlight {
 
 <hr/>
 
-<p>Ben Blamey | lastname.firstname(at)gmail(dot)com | <a href="http://benblamey.name">Homepage</a>
-| <a href="http://benblamey.name/pubs/ai_2013/blamey13parsing.pdf">Paper (PDF)</a>
-| <a href="http://benblamey.name/pubs/ai_2013/blamey13parsing_slides.pdf">Slides (PDF)</a>
-| <a href="http://benblamey.name/pubs/ai_2013/blamey13parsing.bib">Bibtex</a>
+<p>Ben Blamey | lastname.firstname(at)benblamey(dot)com | <a href="http://benblamey.com">Homepage</a>
+| <a href="http://benblamey.com/pubs/ai_2013/blamey13parsing.pdf">Paper (PDF)</a>
+| <a href="http://benblamey.com/pubs/ai_2013/blamey13parsing_slides.pdf">Slides (PDF)</a>
+| <a href="http://benblamey.com/pubs/ai_2013/blamey13parsing.bib">Bibtex</a>
 | <a href="https://github.com/benblamey/stanford-nlp">Source Code</a></p>
 
 </body>

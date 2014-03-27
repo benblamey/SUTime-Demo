@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<!DOCTYPE project>
+<!-- Configuration of the Ant build system to generate a Jar file --> 
+<project name="TestMain" default="CopyDeps">
+  <target name="CopyDeps" description="Copy Dependent Class Files">
+        
+  	<!-- <jar jarfile="Test.jar" basedir="." includes="*.class" /> -->
+
+  	<!-- Copy the files into WEB-INF so that we can rsync that directory to the server, and get the necessary class files and shell scripts, etc. -->
+  	
+  	<!-- Current directory is "src" 
+  	
+	<copy todir="../WebContent/WEB-INF/classes">
+		<fileset dir="../../benblamey.core/build/classes" 
+			includes="**/*.class"/>
+	</copy>
+  	
+  	-->
+	<copy todir="../WebContent/WEB-INF/classes">
+		<fileset dir="../../../3rd_Ben/stanford_nlp/target" 
+			includes="**/*.class"/>
+	</copy>
+	
+  	
+  	<!--
+	<copy todir="../WebContent/WEB-INF/classes">
+		<fileset dir="C:\work\code\Ben\caliph-emir\build\classes" 
+			includes="**/*.class"/>
+	</copy>
+  	
+  	
+	<copy todir="../WebContent/WEB-INF/classes">
+		<fileset dir="../build/classes" includes="**/*.class"/>
+	</copy>
+	
+  	
+  	
+	<copy todir="../WebContent/WEB-INF/classes">
+		<fileset dir="../../benblamey/bin" 
+			includes="**/*"/>
+	</copy>
+
+	
+  	
+	<copy todir="../WebContent/WEB-INF/classes">
+		<fileset dir="../../../../3rd_Ben/stanford_nlp/target/classes"/>
+	</copy>
+  	-->
+		
+  	
+
+  </target>
+	
+	<target name="ClearWebContentClasses">
+		
+		<delete>
+		    <fileset dir="../WebContent/WEB-INF/classes" includes="**/*.class"/>
+			<!--<fileset file="../WebContent/WEB-INF/benblamey_java.sh"/>-->
+		  </delete>
+
+			
+	</target>
+	
+	
+	
+	
+</project>
