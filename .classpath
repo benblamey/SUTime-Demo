@@ -31,6 +31,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-codec-1.7.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-lang3-3.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="WebContent/WEB-INF/lib/stanford_nlp"/>
-	<classpathentry kind="output" path="build/classes"/>
+	<classpathentry kind="lib" path="C:/work/code/3rd_Ben/stanford_nlp/target/classes"/>
+	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

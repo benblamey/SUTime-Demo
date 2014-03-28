@@ -9,17 +9,22 @@
   	<!-- Copy the files into WEB-INF so that we can rsync that directory to the server, and get the necessary class files and shell scripts, etc. -->
   	
   	<!-- Current directory is "src" 
-  	
-	<copy todir="../WebContent/WEB-INF/classes">
-		<fileset dir="../../benblamey.core/build/classes" 
-			includes="**/*.class"/>
-	</copy>
-  	
   	-->
 	<copy todir="../WebContent/WEB-INF/classes">
-		<fileset dir="../../../3rd_Ben/stanford_nlp/target" 
+		<fileset dir="../../ben_phd_java/benblamey.core/build/classes" 
 			includes="**/*.class"/>
 	</copy>
+  	
+  	
+	<copy todir="../WebContent/WEB-INF/classes">
+		<fileset dir="../../../3rd_Ben/stanford_nlp/target/classes" 
+			includes="**/*.class"/>
+	</copy>
+  	
+  	<copy todir="../WebContent/WEB-INF/classes">
+  			<fileset dir="../../../3rd_Ben/stanford_nlp/target/classes" 
+  				includes="**/sutime/**"/>
+  		</copy>
 	
   	
   	<!--

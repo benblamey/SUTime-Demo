@@ -88,15 +88,15 @@ public class Index extends HttpServlet {
 
 			AnnotationPipeline pipeline;
 			
-			String uri ="edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
-				Properties props = StringUtils.argsToProperties(new String[0]);
-			props.put(
-					"pos.model",
-					
-					uri);
-					//"C:\\work\\code\\3rd_Ben\\stanford_nlp/src/edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger");
+//			String uri ="edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
+//				Properties props = StringUtils.argsToProperties(new String[0]);
+//			props.put(
+//					"pos.model",
+//					
+//					uri);
+//					//"C:\\work\\code\\3rd_Ben\\stanford_nlp/src/edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger");
 
-			pipeline = DistributedMain.getPipeline(props, true);
+			pipeline = DistributedMain.getPipeline();
 
 			//StringWriter stringWriter = new StringWriter();
 			//PrintWriter pw = new PrintWriter(stringWriter);
