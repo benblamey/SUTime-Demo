@@ -21,6 +21,16 @@ import edu.stanford.nlp.util.StringUtils;
 @WebServlet("/Index")
 public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static AnnotationPipeline pipeline;
+	
+	private synchronized static AnnotationPipeline getPipeline() throws Exception
+	{
+		if (pipeline == null) {
+			pipeline = DistributedMain.getPipeline();
+		}
+		return pipeline;
+	}
+	
 
 
 	/**
@@ -67,7 +77,7 @@ public class Index extends HttpServlet {
 			String in= request.getParameter("text");
 			
 			if (in == null || in.length() == 0) {
-				in = "Christmas\n\nSummer 2001";
+				in = "Christmas\n\nSummer 2010";
 			}
 			
 			final int MAX_INPUT_LENGTH = 4000;
@@ -86,7 +96,7 @@ public class Index extends HttpServlet {
 
 			String date = null;//"2013-04-23";// props.getProperty("date");
 
-			AnnotationPipeline pipeline;
+			
 			
 //			String uri ="edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger";
 //				Properties props = StringUtils.argsToProperties(new String[0]);
@@ -96,12 +106,12 @@ public class Index extends HttpServlet {
 //					uri);
 //					//"C:\\work\\code\\3rd_Ben\\stanford_nlp/src/edu/stanford/nlp/models/pos-tagger/english-left3words/english-left3words-distsim.tagger");
 
-			pipeline = DistributedMain.getPipeline();
+			
 
 			//StringWriter stringWriter = new StringWriter();
 			//PrintWriter pw = new PrintWriter(stringWriter);
 
-			ProcessTextResult ptr = SUTimeMain2.processText(pipeline, in, date);
+			ProcessTextResult ptr = SUTimeMain2.processText(getPipeline(), in, date);
 
 			//request.setAttribute("PTR", ptr);
 			request.setAttribute("HIGHLIGHTED_HTML", ptr.highlightedHtml);
